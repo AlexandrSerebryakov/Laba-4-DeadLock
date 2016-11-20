@@ -1,7 +1,7 @@
 package com.epam.alex.entity;
 
 /**
- * Created by ${AlexandrSerebryakov} on ${09.10.2016}.
+ * Created by AlexandrSerebryakov on 20.10.2016}.
  */
 public class AccountA {
     public int getAccountA() {

@@ -4,20 +4,27 @@ import com.epam.alex.entity.AccountA;
 import com.epam.alex.entity.AccountB;
 
 /**
- * Created by ${AlexandrSerebryakov} on ${09.10.2016}.
+ * Created by AlexandrSerebryakov on 20.10.2016}.
  */
 public class SecondThread implements Runnable {
     @Override
     public void run() {
         AccountB accountB = new AccountB();
-        int d = accountB.getAccountB() - 300;
-        accountB.setAccountB(d);
-        System.out.println(d);
+        System.out.println("--------------------");
+        System.out.println("Transaction#2:");
+        System.out.println("AccountBalanceB = " + accountB.getAccountB());
+        int operationFromB = 300;
+        int accountBalanceB = accountB.getAccountB() - operationFromB;
+        System.out.println("OperationAccountB: -" + operationFromB);
+        accountB.setAccountB(accountBalanceB);
+        System.out.println("AccountBalanceB = " + accountB.getAccountB());
 
         AccountA accountA = new AccountA();
-        int g = accountA.getAccountA() + 300;
-        accountA.setAccountA(g);
-        System.out.println(g);
+        int accountBalanceBefore = accountA.getAccountA();
+        int accountBalanceA = accountA.getAccountA() + operationFromB;
+        accountA.setAccountA(accountBalanceA);
+        System.out.println("AccountBalanceB: " + accountBalanceBefore + " + " + operationFromB + " = " + accountA.getAccountA());
+        System.out.println("--------------------");
 
     }
 }
